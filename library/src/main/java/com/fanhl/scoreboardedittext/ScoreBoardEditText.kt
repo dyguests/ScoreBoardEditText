@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable
 import android.support.v7.widget.AppCompatEditText
 import android.text.InputFilter
 import android.text.TextPaint
+import android.text.method.MovementMethod
 import android.util.AttributeSet
 
 /**
@@ -86,6 +87,11 @@ class ScoreBoardEditText @JvmOverloads constructor(
         }
 
         canvas.restoreToCount(save)
+    }
+
+    override fun getDefaultMovementMethod(): MovementMethod? {
+//        return super.getDefaultMovementMethod()
+        return null
     }
 
     override fun setBackground(background: Drawable?) {
