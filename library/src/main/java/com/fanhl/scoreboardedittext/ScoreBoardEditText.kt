@@ -33,6 +33,7 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
         textPaint.apply {
             textSize = this@ScoreBoardEditText.textSize
             color = this@ScoreBoardEditText.currentTextColor
+            typeface = this@ScoreBoardEditText.typeface
         }
 
         maxLength = filters.firstOrNull { it is InputFilter.LengthFilter }?.let { it as InputFilter.LengthFilter }?.max
