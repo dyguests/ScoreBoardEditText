@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.AppCompatEditText
 import android.text.InputFilter
 import android.text.TextPaint
 import android.text.method.MovementMethod
 import android.util.AttributeSet
+import android.view.MotionEvent
 
 /**
  * EditText with ScoreBoard ui
@@ -52,6 +54,14 @@ class ScoreBoardEditText @JvmOverloads constructor(
         charPadding = a.getDimensionPixelOffset(R.styleable.ScoreBoardEditText_charPadding, resources.getDimensionPixelOffset(R.dimen.sbet_char_padding))
 
         a.recycle()
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        val superResult = super.onTouchEvent(event)
+
+        setSelection(text?.length ?: 0)
+
+        return superResult
     }
 
     override fun onDraw(canvas: Canvas?) {
@@ -112,5 +122,21 @@ class ScoreBoardEditText @JvmOverloads constructor(
 
     override fun setBackgroundResource(resId: Int) {
 //        super.setBackgroundResource(resId)
+    }
+
+    override fun setTextSize(size: Float) {
+        textPaint.textSize = size
+        super.setTextSize(size)
+    }
+
+    override fun setTextColor(color: Int) {
+        textPaint.color = color
+        super.setTextColor(color)
+    }
+
+    override fun setTypeface(tf: Typeface?) {
+        textPaint.typeface = tf
+        super.setTypeface(tf)
+
     }
 }
