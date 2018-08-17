@@ -1,6 +1,7 @@
 package com.fanhl.scoreboardedittext
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
@@ -14,7 +15,11 @@ import android.util.AttributeSet
  *
  * @author fanhl
  */
-class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatEditText(context, attrs, defStyleAttr) {
+class ScoreBoardEditText @JvmOverloads constructor(
+    context: Context?,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.support.v7.appcompat.R.attr.editTextStyle
+) : AppCompatEditText(context, attrs, defStyleAttr) {
     private val maxLength: Int?
 
     private val textPaint by lazy {
@@ -28,7 +33,7 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
     private var charPadding: Int = 0
 
     init {
-        val theme = context?.theme ?: throw Exception("ScoreBoardEditText.context not Found.")
+        isCursorVisible = false
 
         textPaint.apply {
             textSize = this@ScoreBoardEditText.textSize
@@ -37,6 +42,8 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
         }
 
         maxLength = filters.firstOrNull { it is InputFilter.LengthFilter }?.let { it as InputFilter.LengthFilter }?.max
+
+        val theme = context?.theme ?: throw Exception("ScoreBoardEditText.context not Found.")
 
         val a = theme.obtainStyledAttributes(attrs, R.styleable.ScoreBoardEditText, defStyleAttr, R.style.Widget_Score_Board_Edit_Text)
 
@@ -79,5 +86,25 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
         }
 
         canvas.restoreToCount(save)
+    }
+
+    override fun setBackground(background: Drawable?) {
+//        super.setBackground(background)
+    }
+
+    override fun setBackgroundColor(color: Int) {
+//        super.setBackgroundColor(color)
+    }
+
+    override fun setBackgroundTintList(tint: ColorStateList?) {
+//        super.setBackgroundTintList(tint)
+    }
+
+    override fun setBackgroundDrawable(background: Drawable?) {
+//        super.setBackgroundDrawable(background)
+    }
+
+    override fun setBackgroundResource(resId: Int) {
+//        super.setBackgroundResource(resId)
     }
 }
