@@ -2,6 +2,7 @@ package com.fanhl.scoreboardedittext
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.AppCompatEditText
 import android.text.InputFilter
@@ -19,6 +20,7 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
     private val textPaint by lazy {
         TextPaint().apply {
             isAntiAlias = true
+            textAlign = Paint.Align.CENTER
         }
     }
 
@@ -69,7 +71,7 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
                 draw(canvas)
             }
             text.getOrNull(index)?.let { char ->
-                canvas.drawText(char.toString(), itemX, itemY, textPaint)
+                canvas.drawText(char.toString(), itemX, itemY - ((textPaint.descent() + textPaint.ascent()) / 2), textPaint)
             }
         }
 
