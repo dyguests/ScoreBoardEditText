@@ -25,11 +25,9 @@ class ScoreBoardEditText @JvmOverloads constructor(
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
     private val maxLength: Int?
 
-    private val textPaint by lazy {
-        TextPaint().apply {
-            isAntiAlias = true
-            textAlign = Paint.Align.CENTER
-        }
+    private val textPaint = TextPaint().apply {
+        isAntiAlias = true
+        textAlign = Paint.Align.CENTER
     }
 
     private var charBackground: Drawable? = null
@@ -135,7 +133,8 @@ class ScoreBoardEditText @JvmOverloads constructor(
     }
 
     override fun setTypeface(tf: Typeface?) {
-        textPaint.typeface = tf
+        // 注意：这个 ?. 不要动， 应该是因为父类 init 时 textPaint还未初始化
+        textPaint?.typeface = tf
         super.setTypeface(tf)
 
     }
