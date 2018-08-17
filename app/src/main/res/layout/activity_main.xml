@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <com.fanhl.scoreboardedittext.ScoreBoardEditText
-        android:id="@+id/scoreBoardEditText"
+        android:id="@+id/et_1"
         android:layout_width="246dp"
         android:layout_height="72dp"
         android:layout_marginEnd="8dp"
@@ -19,27 +19,25 @@
         android:textColor="@android:color/white"
         android:textSize="48sp"
         app:charBackground="@drawable/sbet_char_background"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+    <com.fanhl.scoreboardedittext.ScoreBoardEditText
+        android:id="@+id/et_2"
+        android:layout_width="246dp"
+        android:layout_height="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:ems="10"
-        android:fontFamily="sans-serif-condensed"
-        android:inputType="textPersonName"
-        android:text="2333"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:maxLength="4"
+        android:text="12"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="36sp"
+        app:charBackground="@mipmap/ic_launcher"
+        app:charPadding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreBoardEditText"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_1"/>
 </android.support.constraint.ConstraintLayout>
