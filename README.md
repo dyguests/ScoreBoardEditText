@@ -19,7 +19,7 @@ A EditText with score board ui style.
 
 	// Add the dependency
 	dependencies {
-	        implementation 'com.github.dyguests:ScoreBoardEditText:0.1.0'
+	        implementation 'com.github.dyguests:ScoreBoardEditText:x.y.z'
 	}
 ```
 
