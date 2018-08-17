@@ -25,6 +25,7 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
     }
 
     private var charBackground: Drawable? = null
+    private var charPadding: Int = 0
 
     init {
         val theme = context?.theme ?: throw Exception("ScoreBoardEditText.context not Found.")
@@ -39,6 +40,7 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
         val a = theme.obtainStyledAttributes(attrs, R.styleable.ScoreBoardEditText, defStyleAttr, R.style.Widget_Score_Board_Edit_Text)
 
         charBackground = a.getDrawable(R.styleable.ScoreBoardEditText_charBackground)
+        charPadding = a.getDimensionPixelOffset(R.styleable.ScoreBoardEditText_charPadding, resources.getDimensionPixelOffset(R.dimen.sbet_char_padding))
 
         a.recycle()
     }
@@ -55,18 +57,18 @@ class ScoreBoardEditText @JvmOverloads constructor(context: Context?, attrs: Att
 
         val textCount = maxLength ?: text.length
 
-        val itemWidth = width / textCount.toFloat()
+        val itemWidth = (width - charPadding * (textCount - 1)) / textCount.toFloat()
 
         for (index in 0 until textCount) {
-            val itemX = (index + 0.5f) * itemWidth
+            val itemX = 0.5f * itemWidth + index * (itemWidth + charPadding)
             val itemY = height / 2f
 
             charBackground?.apply {
                 setBounds(
-                    (itemX - 50).toInt(),
-                    (itemY - 50).toInt(),
-                    (itemX + 50).toInt(),
-                    (itemY + 50).toInt()
+                    (itemX - itemWidth / 2).toInt(),
+                    (itemY - height / 2).toInt(),
+                    (itemX + itemWidth / 2).toInt(),
+                    (itemY + height / 2).toInt()
                 )
                 draw(canvas)
             }

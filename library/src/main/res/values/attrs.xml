@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="ScoreBoardEditText">
         <attr name="charBackground" format="reference"/>
+        <attr name="charPadding" format="dimension"/>
     </declare-styleable>
 </resources>

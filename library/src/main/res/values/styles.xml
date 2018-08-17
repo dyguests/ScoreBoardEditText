@@ -2,6 +2,6 @@
 <resources>
 
     <style name="Widget_Score_Board_Edit_Text">
-
+        <item name="charPadding">@dimen/sbet_char_padding</item>
     </style>
 </resources>

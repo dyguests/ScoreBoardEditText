@@ -4,11 +4,26 @@
         <shape>
             <gradient
                 android:angle="270"
-                android:endColor="#779bba"
-                android:startColor="#a1cdec"/>
+                android:endColor="#46546c"
+                android:startColor="#7b94b0"/>
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+    <item
+        android:height="4dp"
+        android:gravity="center_vertical">
+        <shape>
+            <gradient
+                android:angle="270"
+                android:endColor="#89a9c6"
+                android:startColor="#4c627c"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
             <stroke
-                android:width="2dp"
-                android:color="#1a6784a5"/>
+                android:width="4dp"
+                android:color="#333c4961"/>
             <corners android:radius="4dp"/>
         </shape>
     </item>
