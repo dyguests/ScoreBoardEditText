@@ -6,7 +6,7 @@ A EditText with score board ui style.
 
 ![](./graphices/cap1.gif)
 
-## Usage
+## Import
 
 ```gradle
 	// Add it in your root build.gradle at the end of repositories:
@@ -22,6 +22,15 @@ A EditText with score board ui style.
 	        implementation 'com.github.dyguests:ScoreBoardEditText:x.y.z'
 	}
 ```
+
+## Usage
+
+    // also support EditText styleable.
+
+    <declare-styleable name="ScoreBoardEditText">
+        <attr name="charBackground" format="reference"/>
+        <attr name="charPadding" format="dimension"/>
+    </declare-styleable>
 
 ## License
 
